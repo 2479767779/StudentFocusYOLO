@@ -1,0 +1,66 @@
+# YOLO模型配置
+yolo:
+  model_type: "yolov8n"  # yolov8n, yolov8s, yolov8m
+  img_size: 640
+  conf_threshold: 0.25
+  iou_threshold: 0.45
+  device: "cuda"  # cuda, cpu
+  half: true  # 使用半精度浮点数
+
+# 人脸检测配置
+face_detection:
+  min_face_size: 80  # 最小人脸像素
+  max_faces: 10      # 最大检测人数
+  detection_interval: 3  # 每隔几帧检测一次
+
+# 姿态估计配置
+pose_estimation:
+  model: "mediapipe"  # mediapipe, dlib
+  landmarks: true
+  head_pose: true
+  gaze_tracking: true
+
+# 专注度评分配置
+focus_scoring:
+  weights:
+    posture: 0.30      # 姿态权重
+    gaze: 0.30         # 视线权重
+    expression: 0.20   # 表情权重
+    temporal: 0.20     # 时序权重
+  
+  thresholds:
+    excellent: 85      # 优秀
+    good: 70           # 良好
+    average: 50        # 一般
+    poor: 30           # 较差
+  
+  # 姿态评分参数
+  posture_params:
+    max_head_yaw: 45    # 最大偏航角(度)
+    max_head_pitch: 30  # 最大俯仰角(度)
+    max_head_roll: 20   # 最大滚转角(度)
+  
+  # 视线评分参数
+  gaze_params:
+    front_cone_angle: 30   # 正前方锥形角度
+    side_cone_angle: 60    # 侧方锥形角度
+  
+  # 表情评分参数
+  expression_params:
+    eye_aspect_threshold: 0.25  # 眼睛开合度阈值
+    yawn_threshold: 0.30        # 打哈欠阈值
+    blink_rate_normal: [15, 25] # 正常眨眼频率(次/分钟)
+
+# 视频处理配置
+video:
+  fps: 30
+  resolution: [1280, 720]
+  buffer_size: 5
+  save_format: "mp4"
+
+# 性能优化
+performance:
+  batch_size: 1
+  use_half_precision: true
+  skip_frames: 0  # 跳帧处理，0表示不跳帧
+  multi_threading: true

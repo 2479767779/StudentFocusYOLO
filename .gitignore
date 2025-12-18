@@ -1,0 +1,78 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 数据和模型
+data/raw/
+data/processed/
+data/models/
+results/
+*.mp4
+*.avi
+*.jpg
+*.png
+
+# 临时文件
+temp/
+tmp/
+*.tmp
+
+# 日志
+*.log
+logs/
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# 配置文件（包含敏感信息）
+config/local.yaml
+config/production.yaml
+
+# 缓存文件
+.cache/
+*.cache
+
+# 测试覆盖率
+htmlcov/
+.coverage
+*.cover
+
+# IDE特定
+*.code-workspace
+.mypy_cache/
+.pytest_cache/

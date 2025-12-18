@@ -1,0 +1,52 @@
+# 核心深度学习框架
+torch>=2.0.0
+torchvision>=0.15.0
+ultralytics==8.0.0
+
+# 计算机视觉核心库
+opencv-python==4.8.1
+opencv-contrib-python==4.8.1
+
+# 姿态估计和面部特征
+mediapipe==0.10.0
+dlib==19.24.0
+
+# 数据处理
+numpy==1.24.0
+pandas==2.0.0
+scipy==1.11.0
+
+# 可视化
+matplotlib==3.7.0
+seaborn==0.12.0
+plotly==5.15.0
+
+# Web界面
+streamlit==1.28.0
+fastapi==0.103.0
+uvicorn[standard]==0.23.0
+
+# 异步处理
+asyncio==3.4.3
+aiofiles==23.2.0
+
+# 配置管理
+pyyaml==6.0.1
+
+# 进度条
+tqdm==4.66.0
+
+# 日志
+loguru==0.7.0
+
+# 类型提示
+typing-extensions==4.8.0
+
+# 测试
+pytest==7.4.0
+pytest-asyncio==0.21.0
+
+# 开发工具
+black==23.10.0
+flake8==6.1.0
+mypy==1.6.0

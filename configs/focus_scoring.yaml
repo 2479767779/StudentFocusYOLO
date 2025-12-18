@@ -1,0 +1,167 @@
+# 专注度评分详细规则
+
+# 专注度行为分类
+behavior_categories:
+  focused:
+    - "looking_front"
+    - "upright_posture"
+    - "normal_blink"
+    - "attentive_expression"
+  
+  slightly_distracted:
+    - "slight_head_turn"
+    - "looking_side"
+    - "occasional_yawn"
+    - "tired_expression"
+  
+  distracted:
+    - "looking_away"
+    - "head_down"
+    - "frequent_yawn"
+    - "sleepy_expression"
+    - "phone_usage"
+
+# 姿态评分规则
+posture_scoring:
+  head_yaw:
+    - range: [0, 15]    # 正常范围
+      score: 100
+    - range: [15, 30]   # 轻微偏转
+      score: 80
+    - range: [30, 45]   # 中度偏转
+      score: 50
+    - range: [45, 180]  # 严重偏转
+      score: 20
+  
+  head_pitch:
+    - range: [0, 10]    # 正常
+      score: 100
+    - range: [10, 20]   # 轻微低头
+      score: 80
+    - range: [20, 30]   # 中度低头
+      score: 50
+    - range: [30, 90]   # 严重低头
+      score: 20
+  
+  head_roll:
+    - range: [0, 10]    # 正常
+      score: 100
+    - range: [10, 20]   # 轻微倾斜
+      score: 80
+    - range: [20, 45]   # 严重倾斜
+      score: 40
+
+# 视线评分规则
+gaze_scoring:
+  front_cone:
+    angle: 30
+    score: 100
+  side_cone:
+    angle: 60
+    score: 70
+  away_cone:
+    angle: 90
+    score: 30
+
+# 表情评分规则
+expression_scoring:
+  eye_openness:
+    - threshold: 0.25   # 眼睛开合度
+      score: 100
+    - threshold: 0.15
+      score: 60
+    - threshold: 0.10
+      score: 20
+  
+  yawn_detection:
+    - frequency: 0      # 无哈欠
+      score: 100
+    - frequency: 1      # 1次/分钟
+      score: 80
+    - frequency: 2      # 2次/分钟
+      score: 60
+    - frequency: 3      # 3次/分钟
+      score: 40
+    - frequency: 5      # 5次/分钟
+      score: 20
+  
+  blink_rate:
+    - range: [15, 25]   # 正常眨眼频率
+      score: 100
+    - range: [10, 15]   # 较少眨眼
+      score: 70
+    - range: [5, 10]    # 极少眨眼
+      score: 40
+    - range: [0, 5]     # 几乎不眨眼
+      score: 10
+
+# 时序评分规则
+temporal_scoring:
+  attention_span:
+    - duration: 60      # 持续专注60秒
+      score: 100
+    - duration: 45
+      score: 90
+    - duration: 30
+      score: 80
+    - duration: 15
+      score: 60
+    - duration: 5
+      score: 40
+  
+  focus_fluctuation:
+    - variance: 0.1     # 波动小
+      score: 100
+    - variance: 0.2
+      score: 80
+    - variance: 0.3
+      score: 60
+    - variance: 0.5
+      score: 40
+
+# 专注度等级定义
+focus_levels:
+  excellent:
+    range: [85, 100]
+    description: "高度专注，积极参与"
+    color: "#2ecc71"
+  
+  good:
+    range: [70, 84]
+    description: "良好专注，偶尔分心"
+    color: "#3498db"
+  
+  average:
+    range: [50, 69]
+    description: "一般专注，需要提醒"
+    color: "#f39c12"
+  
+  poor:
+    range: [30, 49]
+    description: "专注度差，频繁分心"
+    color: "#e74c3c"
+  
+  critical:
+    range: [0, 29]
+    description: "严重分心，需要干预"
+    color: "#c0392b"
+
+# 异常行为检测
+anomaly_detection:
+  sleeping:
+    conditions:
+      - "eye_closed_long"
+      - "head_down_long"
+    threshold_time: 10  # 秒
+  
+  phone_usage:
+    conditions:
+      - "looking_down"
+      - "hand_movement"
+    threshold_time: 5
+  
+  distraction:
+    conditions:
+      - "looking_away"
+      - "talking"
+    threshold_time: 3
