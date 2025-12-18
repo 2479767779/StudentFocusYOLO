@@ -313,9 +313,6 @@ python main.py --model yolov8n --img-size 416
 4. 推送到分支 (`git push origin feature/AmazingFeature`)
 5. 开启 Pull Request
 
-## 📄 许可证
-
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情
 
 ## 🙏 致谢
 
@@ -327,12 +324,12 @@ python main.py --model yolov8n --img-size 416
 ## 📞 联系方式
 
 如有问题或建议，请通过以下方式联系：
-- Issue 提交: [GitHub Issues](https://github.com/yourusername/student-focus-yolo/issues)
-- 邮箱: your.email@example.com
+- Issue 提交: [GitHub Issues](https://github.com/2479767779/student-focus-yolo/issues)
+- 邮箱: 2479767779@qq.com
 
 ---
 
 **注意**: 本系统仅供教学研究使用，请确保在使用过程中遵守相关隐私法规，获得必要的授权和同意。
 
-**版本**: v1.0.0  
-**最后更新**: 2024-12-18
+**版本**: v1.0.1
+**最后更新**: 2025-12-18
